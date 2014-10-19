@@ -14,7 +14,7 @@ import com.bloomberglp.blpapi.Name;
 import com.bloomberglp.blpapi.Request;
 import com.bloomberglp.blpapi.Service;
 import com.bloomberglp.blpapi.Session;
-import com.bloomberglp.blpapi.SessionOptions;
+import com.bloomberglp.blpapi.SessionOptions;	
 
 @SuppressWarnings("unused")
 public class GetData {
@@ -113,6 +113,42 @@ public class GetData {
 				printErrorInfo("Request Failed: ", msg.getElement(RESPONSE_ERROR));
 				continue;
 			}
+			
+			Element securities = msg.getElement(SECURITY_DATA);
+			int numSecurities = securities.numValues();
+			System.out.println("Processing " + numSecurities + " securities:");
+			for(int i = 0; i < numSecurities; ++i) {
+				Element security = securities.getValueAsElement(i);
+				String ticker = security.getElementAsString(SECURITY);
+				System.out.println("\nTicker: " + ticker);
+				if(security.hasElement(SECURITY_ERROR)) {
+					printErrorInfo("\tSECURITY FAILED: ", security.getElement(SECURITY_ERROR));
+					continue;
+				}
+				
+				if(security.hasElement(FIELD_DATA)) {
+					Element fields = security.getElement(FIELD_DATA);
+					if(fields.numElements() > 0) {
+						System.out.println("FIELD\t\tVALUE");
+						System.out.println("-----\t\t-----");
+						int numElements = fields.numElements();
+						for(int j = 0; j < numElements; ++j) {
+							Element field = fields.getElement(j);
+							System.out.println(field.name() + "\t\t" + field.getValueAsString());
+						}
+					}
+				}
+				System.out.println("");
+				Element fieldExceptions = security.getElement(FIELD_EXCEPTIONS);
+				if(fieldExceptions.numValues() > 0) {
+					System.out.println("FIELD\t\tEXCEPTION");
+					System.out.println("-----\t\t---------");
+					for(int k = 0; k < fieldExceptions.numValues(); ++k) {
+						Element fieldException = fieldExceptions.getValueAsElement(k);
+						printErrorInfo(fieldException.getElementAsString(FIELD_ID) + "\t\t", fieldException.getElement(ERROR_INFO));
+					}
+				}
+			}
 		}
 	}
 	
@@ -135,11 +171,9 @@ public class GetData {
 		System.out.println("Sending Request: " + request);
 		session.sendRequest(request, null);
 	}
-	private void printErrorInfo(String leadingStr, Element errorInfo)
-		    throws Exception
-		    {
-		        System.out.println(leadingStr + errorInfo.getElementAsString(CATEGORY) +
-		                           " (" + errorInfo.getElementAsString(MESSAGE) + ")");
-		    }
+	private void printErrorInfo(String leadingStr, Element errorInfo) throws Exception {
+        System.out.println(leadingStr + errorInfo.getElementAsString(CATEGORY) +
+                           " (" + errorInfo.getElementAsString(MESSAGE) + ")");
+    }
 
 }

@@ -1,0 +1,102 @@
+FIELD ID     MNEMONIC                            DESCRIPTION                             
+-----------  -----------                         -----------                             
+RQ002        BID                                 Bid Price - Realtime                    
+RQ004        ASK                                 Ask Price - Realtime                    
+RQ008        LOW                                 Low Price - Realtime                    
+RQ007        HIGH                                High Price - Realtime                   
+RQ029        YEST_LAST_TRADE                     Yesterday Last Trade                    
+RQ006        OPEN                                Open Price - Realtime                   
+RQ174        BID_ALL_SESSION                     Bid Price All Session                   
+RQ175        ASK_ALL_SESSION                     Ask Price All Session                   
+RQ013        VOLUME                              Volume - Realtime                       
+RQ930        DYNAMIC_SHORT_SALE_CODE_RT          Dynamic Short Sale Code - Realtime      
+RQ309        UNDL_PX_AT_OPT_TRADE_RT             Underlying Price at Last Option Trade (Realtime)
+RQ089        THEO_PRICE                          Theoretical Price                       
+RQ501        LAST_UPDATE_BID_RT                  Time Of Bid Update (Realtime)           
+RQ502        LAST_UPDATE_ASK_RT                  Time Of Ask Update (Realtime)           
+RQ483        LAST_PRICE_AM_SESSION               Last Price AM Session                   
+RQ173        PREV_CLOSE_VALUE_REALTIME           Previous Closing Value                  
+RQ618        PX_SETTLE_LAST_DT_RT                Date of Last Settlement Price Real Time 
+RQ819        LAST_PRICE_COND_CODE_RT             Last Price Condition Code (Realtime)    
+ZZ0027       LAST_TRADE                          Last Trade                              
+RQ047        PX_EVAL_JAPANESE_REALTIME           Japanese Evaluation Price Realtime      
+RQ181        RT_SIMP_SEC_STATUS                  Simplified Security Status - Realtime   
+RQ484        LAST_PRICE_PM_SESSION               Last Price PM Session                   
+RQ084        ORDER_IMB_SELL_VOLUME               Imbalance Sell Volume                   
+RQ083        ORDER_IMB_BUY_VOLUME                Imbalance Buy Volume                    
+RQ429        PX_OFFICIAL_CLOSE_RT                Official Closing Price (Realtime)       
+RQ604        LAST_SENDERS_FIRM_RT                Last Sender's Firm (Real-time)          
+RQ498        TRADE_BROKER_CODE                   Trade Broker Code                       
+Q1833        LAST_PRICE_TIME_TODAY_REALTIME      Last Price Time Today Realtime          
+RQ081        IMBALANCE_BUY                       Imbalance Buy Price                     
+RQ082        IMBALANCE_SELL                      Imbalance Sell Price                    
+RQ861        NOMINAL_PRICE_RT                    Nominal Price (Realtime)                
+RQ492        PX_SETTLE_INTRADAY_REALTIME         Intraday Settlement (Realtime)          
+RQ878        PRIMARY_MARKET_CLOSING_PRICE_RT     Closing Price on the Primary Market Realtime
+RQ830        LAST_TRADE_YIELD_RT                 Last Trade Yield (Realtime)             
+Q1834        LAST_TRADE_PRICE_TIME_TODAY_RT      Last Trade Price Time Today Realtime    
+Q1141        LAST_TRADE_PRICE_TODAY_RT           Last Trade Price Today - Realtime       
+RQ619        ACT_TIME_LAST_SETTLE_RECEIVED_RT    Actual Time Last Settlement Received Real Time
+RQ615        VOLUME_UNSCALED_RT                  Volume Unscaled (Realtime)              
+RQ678        PX_LOW_BID_RT                       Low Bid Price (Realtime)                
+RQ690        PX_HIGH_BID_RT                      High Bid Price (Realtime)               
+Q2124        LAST_CONTINUOUS_TRADE_PRICE_RT      Last Continuous Trade Price - Realtime  
+Q1140        PRICE_LAST_RT                       Price - Last - Realtime                 
+RQ032        LAST_PRICE_TDY                      Today's Last Trade                      
+RQ214        PX_PREV_TO_LAST_REALTIME            Previous-To-Last Price                  
+RQ700        OPEN_VOLUME_AM_SESSION_RT           Open Volume AM Session (Realtime)       
+Q1133        PRICE_LAST_TIME_RT                  Price - Last Time - Realtime            
+Q1134        PRICE_LAST_ASK_RT                   Price - Last Ask - Realtime             
+Q1135        PRICE_LAST_BID_RT                   Price - Last Bid - Realtime             
+Q2142        LAST_OFF_BOOK_TRADE_PRICE_RT        Last Off Book Trade Price - Realtime    
+RQ683        UPFRONT_LAST_REALTIME               Upfront Last Price Realtime             
+RQ810        LAST_PX_PERIODIC_REALTIME           Last Price Periodic (Realtime)          
+Q2185        UNADJUSTED_PREV_LAST_PRICE_RT       Unadjusted Previous Last Price - Realtime
+Q2186        ADJUSTED_PREV_LAST_PRICE_RT         Adjusted Previous Last Price - Realtime 
+RQ687        UPFRONT_QUOTED_LAST_REALTIME        Quoted Spread/Upfront Last Price Realtime
+RQ820        LAST_PX_LOCAL_EXCH_SOURCE_RT        Last Price Local Exchange Source (Realtime)
+RQ709        PX_ITAYOSE_AM_SESSION_3_LAST_RT     Itayose AM Session 3 Last Trade (Realtime)
+RQ711        PX_ITAYOSE_PM_SESSION_2_LAST_RT     Itayose PM Session 2 Last Trade (Realtime)
+RQ712        PX_ITAYOSE_PM_SESSION_3_LAST_RT     Itayose PM Session 3 Last Trade (Realtime)
+RQ708        PX_ITAYOSE_AM_SESSION_2_LAST_RT     Itayose AM Session 2 Last Trade (Realtime)
+RQ707        PX_ITAYOSE_AM_SESSION_1_LAST_RT     Itayose AM Session 1 Last Trade (Realtime)
+RQ710        PX_ITAYOSE_PM_SESSION_1_LAST_RT     Itayose PM Session 1 Last Trade (Realtime)
+RQ651        END_OF_MONTH_DIRTY_PRICE_RT         End of Month Dirty Price (Realtime)     
+RQ691        PX_LOW_ASK_RT                       Low Ask Price (Realtime)                
+RQ079        INDICATIVE_FAR                      Far Indicative Price                    
+RQ679        PX_HIGH_ASK_RT                      High Ask Price (Realtime)               
+RQ046        LAST_UPDATE_CHG_1D_RT               Last Update Change 1 Day Realtime       
+Q1131        BLOOMBERG_CLOSE_PRICE_RT            Bloomberg Close Price - Realtime        
+Q3016        LAST_TICK_DIRECTION_RT              Last Tick Direction - Realtime          
+Q1530        PREVIOUS_CLOSE_ADJ_BY_GR_DVD_RT     Previous Close Adjusted by Gross Dividend Realtime
+BT054        LAST2_TRADE                         Last 2 Trade                            
+Q2187        BLOOMBERG_CLOSE_PRICE_TODAY_RT      Bloomberg Close Price Today - Realtime  
+Q2108        LAST_TRADE_CANCELED_IND_RT          Last Trade Canceled Indicator - Realtime
+Q1150        DISCOUNT_LAST_ASK_RT                Discount - Last Ask - Realtime          
+Q1151        DISCOUNT_LAST_BID_RT                Discount - Last Bid - Realtime          
+Q1163        SPREAD_LAST_ASK_RT                  Spread - Last Ask - Realtime            
+Q1164        SPREAD_LAST_BID_RT                  Spread - Last Bid - Realtime            
+RQ603        LAST_RECEIVERS_NAME_RT              Last Receiver's Name (Real-time)        
+RQ942        UPFRONT_PRICE_CHANGE_DAY_RT         Upfront Price Change on Day - Realtime  
+BT055        LAST_DIR                            Last Direction                          
+RQ423        OPEN_TRADE_PRICE_REALTIME           Open Trade Price - Realtime             
+RQ650        END_OF_MONTH_CLEAN_PRICE_RT         End of Month Clean Price (Realtime)     
+RQ941        UPFRONT_PRICE_PERCENT_CHG_DAY_RT    Upfront Price Percent Change on Day - Realtime
+RQ576        LAST_AT_TRADE                       Last AT Trade                           
+RQ704        OPEN_VOLUME_PM_SESSION_RT           Open Volume PM Session (Realtime)       
+RQ602        LAST_SENDERS_NAME_RT                Last Sender's Name (Real-time)          
+RQ592        PREV_SES_LAST_YLD                   Previous Session Last Yield             
+RQ590        OPEN_YLD_RT                         Open Yield - Realtime                   
+RQ572        HIGH_YLD_RT                         High Yield - Realtime                   
+RQ584        LOW_YLD_RT                          Low Yield - Realtime                    
+RQ705        LAST_TRADE_PM_SESSION_RT            Last Trade PM Session (Realtime)        
+Q1550        DYNAMIC_TRADING_LIMIT_PCT_RT        Dynamic Trading Limit Percentage - Realtime
+RQ073        NASDAQ_OPEN                         NASDAQ Official Open Price              
+Q1142        PRICE_PREVIOUS_CLOSE_RT             Price - Previous Close - Realtime       
+Q2125        DYNAMIC_TRADING_LIMITS_REF_PX_RT    Dynamic Trading Limits Reference Price - Realtime
+RQ539        MONTHLY_AVG_OFFICIAL_MEAN_RT        Monthly Average Official Mean Price (Realtime)
+RQ701        LAST_TRADE_AM_SESSION_RT            Last Trade AM Session (Realtime)        
+RQ580        LAST_YLD_TDY                        Today's Last Yield                      
+RQ577        LAST_AT_TRADE_TDY                   Today's Last AT Trade                   
+Q2169        LAST_TRADE_YIELD_TODAY_RT           Last Trade Yield Today - Realtime       
+RQ541        MONTHLY_AVG_OFFICIAL_ASK_RT         Monthly Average Official Ask  Price (Realtime)
