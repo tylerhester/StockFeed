@@ -40,14 +40,21 @@ public class GetData {
         IP_ADDRESS = "10.8.8.1";
         PORT = 8194;
         d_securities = new ArrayList<String>();
-        d_securities.add("MSFT US Equity");
-        d_securities.add("IBM US Equity");
-        d_securities.add("XBTUSD Curncy");
+        d_securities.add("MSFT US Equity"); //Microsoft
+        d_securities.add("IBM US Equity"); //IBM
+        d_securities.add("INDU Index"); //DOW
+        d_securities.add("BLKB UW Equity"); //Blackbaud
+        d_securities.add("FB UW Equity"); //Facebook
+        d_securities.add("AAPL UW Equity"); //Apple
+        d_securities.add("AMD UN Equity"); //AMD
+        d_securities.add("GOOGL UW Equity"); //Google
+        d_securities.add("QCOM UW Equity"); //Qualcomm
+        d_securities.add("XBTUSD Curncy"); //BitCoin
         d_fields = new ArrayList<String>();
         d_fields.add("DS002"); //Description
-        d_fields.add("PX_OFFICIAL_CLOSE_RT"); //Prev to last price
+        //d_fields.add("PX_OFFICIAL_CLOSE_RT"); //Prev to last price
         d_fields.add("PX_LAST"); //Last Stock Price
-       // d_fields.add("RQ173"); //Previous closing value
+        //	d_fields.add("RQ941"); //Upfront Price Percent Change on Day - Realtime
         //d_fields.add("RQ539"); //Monthly Average Official Mean Price Real Time
         //d_fields.add("RQ580"); //Today's Last Yield
         //d_fields.add("CUR_EMPLOYEES"); //Current Employees
@@ -124,6 +131,7 @@ public class GetData {
 		MessageIterator msgIter = event.messageIterator();
 		while(msgIter.hasNext()) {
 			Message msg = msgIter.next();
+			//System.out.println("LOOK AT ME, I'M THE MSG!!: "+msg);
 			if(msg.hasElement(RESPONSE_ERROR)) {
 				printErrorInfo("Request Failed: ", msg.getElement(RESPONSE_ERROR));
 				continue;
@@ -180,24 +188,29 @@ public class GetData {
 		
 		//add securities to request
 		Element securities = request.getElement("securities");
+		//Element hist_securities = request_historical.getElement("securities");
 		for(String security : d_securities) {
 			securities.appendValue(security);
+			//hist_securities.appendValue(security);
 		}
 		
 		//add securities to request
 		Element fields = request.getElement("fields");
+		//Element hist_fields = request_historical.getElement("fields");
 		for(String field : d_fields) {
 			fields.appendValue(field);
+			//hist_fields.appendValue(field);
 		}
 		
-		//request.set("periodicityAdjustment", "ACTUAL");
-        //request.set("periodicitySelection", "MONTHLY");
-//        request_historical.set("startDate", "20060101"); //year/month/day year/mm/dd
-//        request_historical.set("endDate", "20061231");
+//		request_historical.set("periodicityAdjustment", "ACTUAL");
+//        request_historical.set("periodicitySelection", "DAILY");
+//        request_historical.set("startDate", "20141016"); //year/month/day year/mm/dd
+//        request_historical.set("endDate", "20141017");
 //        request_historical.set("maxDataPoints", 100);
 //        request_historical.set("returnEids", true);
 		System.out.println("Sending Request: " + request);
 		session.sendRequest(request, null);
+		//session.sendRequest(request_historical, null);
 	}
 	private void printErrorInfo(String leadingStr, Element errorInfo) throws Exception {
         System.out.println(leadingStr + errorInfo.getElementAsString(CATEGORY) +
