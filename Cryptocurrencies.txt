@@ -1,0 +1,6 @@
+Bitcoin
+Mastercoin
+Ripple
+Litecoin
+Peercoin
+Dogecoin
