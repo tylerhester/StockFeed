@@ -12,7 +12,7 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         android:background="#81a8b8"
         tools:context=".MainActivity$FavoriteFragment"
-        android:orientation="vertical">
+        android:orientation="vertical" >
 
         <ImageButton
             android:id="@+id/action_refresh"

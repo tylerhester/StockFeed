@@ -5,6 +5,7 @@ import java.util.Locale;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.os.StrictMode;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
+
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -37,6 +39,9 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //TextView textView = (TextView) findViewById(R.id.stock_name);
@@ -62,14 +67,14 @@ public class MainActivity extends Activity {
                 try {
 
                     String stock1 = getString(R.string.stock_name_1);
-                    String stock2 = getString(R.string.stock_name_1);
-                    String stock3 = getString(R.string.stock_name_1);
-                    String stock4 = getString(R.string.stock_name_1);
-                    String stock5 = getString(R.string.stock_name_1);
-                    String stock6 = getString(R.string.stock_name_1);
-                    String stock7 = getString(R.string.stock_name_1);
-                    String stock8 = getString(R.string.stock_name_1);
-                    String stock9 = getString(R.string.stock_name_1);
+                    String stock2 = getString(R.string.stock_name_2);
+                    String stock3 = getString(R.string.stock_name_3);
+                    String stock4 = getString(R.string.stock_name_4);
+                    String stock5 = getString(R.string.stock_name_5);
+                    String stock6 = getString(R.string.stock_name_6);
+                    String stock7 = getString(R.string.stock_name_7);
+                    String stock8 = getString(R.string.stock_name_8);
+                    String stock9 = getString(R.string.stock_name_9);
 
                     DataParser parser = new DataParser();
 
@@ -112,32 +117,32 @@ public class MainActivity extends Activity {
                     String sh8 = parser.retrieveHigh(stock8);
                     String sh9 = parser.retrieveHigh(stock9);
 
-                    low1.setText(sl1);
-                    high1.setText(sh1);
+                    low1.setText("LOW: $" + sl1);
+                    high1.setText("HIGH: $" + sh1);
 
-                    low2.setText(sl2);
-                    high2.setText(sh2);
+                    low2.setText("LOW: $" + sl2);
+                    high2.setText("HIGH: $" + sh2);
 
-                    low3.setText(sl3);
-                    high3.setText(sh3);
+                    low3.setText("LOW: $" + sl3);
+                    high3.setText("HIGH: $" + sh3);
 
-                    low4.setText(sl4);
-                    high4.setText(sh4);
+                    low4.setText("LOW: $" + sl4);
+                    high4.setText("HIGH: $" + sh4);
 
-                    low5.setText(sl5);
-                    high5.setText(sh5);
+                    low5.setText("LOW: $" + sl5);
+                    high5.setText("HIGH: $" + sh5);
 
-                    low6.setText(sl6);
-                    high6.setText(sh6);
+                    low6.setText("LOW: $" + sl6);
+                    high6.setText("HIGH: $" + sh6);
 
-                    low7.setText(sl7);
-                    high7.setText(sh7);
+                    low7.setText("LOW: $" + sl7);
+                    high7.setText("HIGH: $" + sh7);
 
-                    low8.setText(sl8);
-                    high8.setText(sh8);
+                    low8.setText("LOW: $" + sl8);
+                    high8.setText("HIGH: $" + sh8);
 
-                    low9.setText(sl9);
-                    high9.setText(sh9);
+                    low9.setText("LOW: $" + sl9);
+                    high9.setText("HIGH: $" + sh9);
 
 
                 }
