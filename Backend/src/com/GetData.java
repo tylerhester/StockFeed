@@ -60,11 +60,37 @@ public class GetData {
 		 }
 		 
 		 // wait for events from session
-//		 eventLoop(session);
+		 eventLoop(session);
 		 
 		 session.stop();
 		 System.out.println("SUCCESS MOTHERFUCKER!");
 
+	}
+	
+	private void eventLoop(Session session) throws Exception {
+		boolean done = false;
+		while(!done) {
+			Event event = session.nextEvent();
+			if(event.eventType() == Event.EventType.PARTIAL_RESPONSE) {
+				System.out.println("Processing Partial Response");
+				//processResponseEvent(event);
+			} else if(event.eventType() == Event.EventType.RESPONSE) {
+				System.out.println("Processing Response");
+				//processResponseEvent(event);
+				done = true;
+			} else {
+				MessageIterator msgIter = event.messageIterator();
+				while(msgIter.hasNext()) {
+					Message msg = msgIter.next();
+					System.out.println(msg.asElement());
+					if(event.eventType() == Event.EventType.SESSION_STATUS) {
+						if(msg.messageType().equals("Session Terminated") || msg.messageType().equals("SessionStartupFailure")) {
+							done = true;
+						}
+					}
+				}
+			}
+		}
 	}
 	
 	private void sendRefDataRequest(Session session) throws Exception {
