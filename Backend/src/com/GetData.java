@@ -74,10 +74,10 @@ public class GetData {
 			Event event = session.nextEvent();
 			if(event.eventType() == Event.EventType.PARTIAL_RESPONSE) {
 				System.out.println("Processing Partial Response");
-				//processResponseEvent(event);
+				processResponseEvent(event);
 			} else if(event.eventType() == Event.EventType.RESPONSE) {
 				System.out.println("Processing Response");
-				//processResponseEvent(event);
+				processResponseEvent(event);
 				done = true;
 			} else {
 				MessageIterator msgIter = event.messageIterator();
@@ -90,6 +90,17 @@ public class GetData {
 						}
 					}
 				}
+			}
+		}
+	}
+	
+	private void processResponseEvent(Event event) throws Exception {
+		MessageIterator msgIter = event.messageIterator();
+		while(msgIter.hasNext()) {
+			Message msg = msgIter.next();
+			if(msg.hasElement(RESPONSE_ERROR)) {
+				printErrorInfo("Request Failed: ", msg.getElement(RESPONSE_ERROR));
+				continue;
 			}
 		}
 	}
