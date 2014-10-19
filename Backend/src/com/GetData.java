@@ -145,7 +145,7 @@ public class GetData {
 				String ticker = security.getElementAsString(SECURITY);
 				//TEST IF TICKER = "XBTUSD Curncy" if so, change its field data to exclude stuff other than PX_LAST
 				System.out.println("\nTicker: " + ticker);//WRITE TO FILE HERE
-				writer.write("\n<SECURITY>"+ticker+"</SECURITY>\n"); 
+				//writer.write("\n<SECURITY>"+ticker+"</SECURITY>\n"); 
 				if(security.hasElement(SECURITY_ERROR)) {
 					printErrorInfo("\tSECURITY FAILED: ", security.getElement(SECURITY_ERROR));
 					continue;
@@ -160,8 +160,10 @@ public class GetData {
 						for(int j = 0; j < numElements; ++j) {
 							Element field = fields.getElement(j);
 							System.out.println(field.name() + "\t\t" + field.getValueAsString()); //WRITE TO FILE
-							writer.write("\t<FIELD_NAME>"+field.name()+"</FIELD_NAME>"+"\n\t\t\t<FIELD_VALUE>"
-							+field.getValueAsString()+"</FIELD_VALUE>");
+							if(field.name().equals("DS002"))
+								writer.write("<COMPANY>"+field.getValueAsString()+"</COMPANY>");
+							else if(field.name().equals("PX_LAST"))
+								writer.write("\t<PRICE>"+field.getValueAsString()+"</PRICE>");
 							writer.newLine();
 						}
 					}
