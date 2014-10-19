@@ -31,7 +31,8 @@
             android:textSize="25px"
             android:paddingTop="0dp"
             android:paddingLeft="0dp"
-            android:paddingRight="0dp" />
+            android:paddingRight="0dp"
+            android:textStyle="bold" />
     </LinearLayout>
 </FrameLayout>
 

@@ -55,6 +55,9 @@ public class MainActivity extends Activity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setCurrentItem(1);
 
+        /*TextView textView = (TextView) findViewById(R.id.stock_name);
+        textView.setText("Mmmmmmm");*/
+
     }
 
 
