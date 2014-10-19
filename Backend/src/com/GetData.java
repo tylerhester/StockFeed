@@ -45,7 +45,7 @@ public class GetData {
         d_securities.add("XBTUSD Curncy");
         d_fields = new ArrayList<String>();
         d_fields.add("DS002"); //Description
-        d_fields.add("RQ005"); //Last price
+        d_fields.add("PX_OFFICIAL_CLOSE_RT"); //Prev to last price
         d_fields.add("PX_LAST"); //Last Stock Price
        // d_fields.add("RQ173"); //Previous closing value
         //d_fields.add("RQ539"); //Monthly Average Official Mean Price Real Time
@@ -136,7 +136,7 @@ public class GetData {
 				Element security = securities.getValueAsElement(i);
 				String ticker = security.getElementAsString(SECURITY);
 				System.out.println("\nTicker: " + ticker);//WRITE TO FILE HERE
-				writer.write(ticker); //TODO: consider adding NEWLINE
+				writer.write("\n<SECURITY>"+ticker+"</SECURITY>\n"); //TODO: consider adding NEWLINE
 				if(security.hasElement(SECURITY_ERROR)) {
 					printErrorInfo("\tSECURITY FAILED: ", security.getElement(SECURITY_ERROR));
 					continue;
@@ -151,8 +151,9 @@ public class GetData {
 						for(int j = 0; j < numElements; ++j) {
 							Element field = fields.getElement(j);
 							System.out.println(field.name() + "\t\t" + field.getValueAsString()); //WRITE TO FILE
-							writer.write("<FIELD_NAME>"+field.name()+"</FIELD_NAME>"+"<FIELD_VALUE>"
+							writer.write("\t<FIELD_NAME>"+field.name()+"</FIELD_NAME>"+"\n\t\t\t<FIELD_VALUE>"
 							+field.getValueAsString()+"</FIELD_VALUE>");
+							writer.newLine();
 						}
 					}
 				}
@@ -167,7 +168,8 @@ public class GetData {
 					}
 				}
 			}
-		}
+		}//End of while loop
+		writer.close();
 	}
 	
 	private void sendRefDataRequest(Session session) throws Exception {
