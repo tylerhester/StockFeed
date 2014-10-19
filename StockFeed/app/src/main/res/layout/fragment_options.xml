@@ -23,7 +23,7 @@
         android:background="@layout/bg_card">
 
         <TextView
-            android:id="@+id/stock_name"
+            android:id="@+id/option_textview_id"
             android:text="OPTIONS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

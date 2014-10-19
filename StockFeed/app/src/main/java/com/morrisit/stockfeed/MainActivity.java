@@ -12,7 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -30,12 +31,14 @@ public class MainActivity extends Activity {
      * The {@link ViewPager} that will host the section contents.
      */
     ViewPager mViewPager;
+    ImageButton imageButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        TextView textView = (TextView) findViewById(R.id.stock_name);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //TextView textView = (TextView) findViewById(R.id.stock_name);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -46,9 +49,20 @@ public class MainActivity extends Activity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setCurrentItem(1);
 
-        //textView.setText("Mmmmmmm");
-        //ImageButton refresh = (ImageButton) findViewById(R.id.action_refresh);
-        //ImageButton favorite = (ImageButton) findViewById(R.id.favorite_button);
+        setContentView(R.layout.fragment_main);
+
+        addImageButtonListener();
+
+    }
+
+    public void addImageButtonListener() {
+        imageButton = (ImageButton) findViewById(R.id.action_refresh);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Refreshing Stocks!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
@@ -94,7 +108,7 @@ public class MainActivity extends Activity {
                     return FavoritesFragment.newInstance(position + 2);
 
                 case 2:
-                    return UnfavoritesFragment.newInstance(position + 3);
+                    return OptionsFragment.newInstance(position + 3);
             }
 
             return OptionsFragment.newInstance(position + 1);
@@ -149,40 +163,7 @@ public class MainActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
-    }
-
-    /**
-     * A fragment for the Favorites list.
-     */
-    public static class UnfavoritesFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static UnfavoritesFragment newInstance(int sectionNumber) {
-            UnfavoritesFragment fragment = new UnfavoritesFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public UnfavoritesFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_unfave, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_options, container, false);
             return rootView;
         }
     }
