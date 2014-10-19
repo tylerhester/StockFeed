@@ -40,16 +40,16 @@ public class GetData {
         IP_ADDRESS = "10.8.8.1";
         PORT = 8194;
         d_securities = new ArrayList<String>();
-        d_securities.add("MSFT US Equity"); //Microsoft
-        d_securities.add("IBM US Equity"); //IBM
-        d_securities.add("INDU Index"); //DOW
-        d_securities.add("BLKB UW Equity"); //Blackbaud
-        d_securities.add("FB UW Equity"); //Facebook
-        d_securities.add("AAPL UW Equity"); //Apple
         d_securities.add("AMD UN Equity"); //AMD
-        d_securities.add("GOOGL UW Equity"); //Google
-        d_securities.add("QCOM UW Equity"); //Qualcomm
+        d_securities.add("AAPL UW Equity"); //Apple
         d_securities.add("XBTUSD Curncy"); //BitCoin
+        d_securities.add("BLKB UW Equity"); //Blackbaud
+        d_securities.add("INDU Index"); //DOW
+        d_securities.add("FB UW Equity"); //Facebook
+        d_securities.add("GOOGL UW Equity"); //Google
+        d_securities.add("IBM US Equity"); //IBM
+        d_securities.add("MSFT US Equity"); //Microsoft
+        d_securities.add("QCOM UW Equity"); //Qualcomm
         d_fields = new ArrayList<String>();
         d_fields.add("DS002"); //Description
         //d_fields.add("PX_OFFICIAL_CLOSE_RT"); //Prev to last price
