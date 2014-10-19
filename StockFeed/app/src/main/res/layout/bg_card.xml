@@ -7,7 +7,12 @@
         <shape android:shape="rectangle"
             android:dither="true">
 
-            <corners android:radius="2dp"/>
+            <corners
+                android:bottomRightRadius="15dp"
+                android:bottomLeftRadius="15dp"
+                android:topRightRadius="15dp"
+                android:topLeftRadius="15dp"
+                />
 
             <solid android:color="#ccc" />
 
@@ -18,7 +23,12 @@
         <shape android:shape="rectangle"
             android:dither="true">
 
-            <corners android:radius="2dp" />
+            <corners
+                android:bottomRightRadius="15dp"
+                android:bottomLeftRadius="15dp"
+                android:topRightRadius="15dp"
+                android:topLeftRadius="15dp"
+                />
 
             <solid android:color="@android:color/white" />
 

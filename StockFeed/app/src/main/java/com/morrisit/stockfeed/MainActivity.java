@@ -50,6 +50,7 @@ public class MainActivity extends Activity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setCurrentItem(1);
 
     }
 
@@ -89,7 +90,18 @@ public class MainActivity extends Activity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            switch(position) {
+                case 0:
+                    return OptionsFragment.newInstance(position + 1);
+
+                case 1:
+                    return FavoritesFragment.newInstance(position + 2);
+
+                case 2:
+                    return UnfavoritesFragment.newInstance(position + 3);
+            }
+
+            return OptionsFragment.newInstance(position + 1);
         }
 
         @Override
@@ -114,9 +126,9 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * A placeholder fragment containing a simple view.
+     * A fragment for the Favorites list.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class FavoritesFragment extends Fragment {
         /**
          * The fragment argument representing the section number for this
          * fragment.
@@ -127,21 +139,87 @@ public class MainActivity extends Activity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
+        public static FavoritesFragment newInstance(int sectionNumber) {
+            FavoritesFragment fragment = new FavoritesFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
             return fragment;
         }
 
-        public PlaceholderFragment() {
+        public FavoritesFragment() {
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            return rootView;
+        }
+    }
+
+    /**
+     * A fragment for the Favorites list.
+     */
+    public static class UnfavoritesFragment extends Fragment {
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        /**
+         * Returns a new instance of this fragment for the given section
+         * number.
+         */
+        public static UnfavoritesFragment newInstance(int sectionNumber) {
+            UnfavoritesFragment fragment = new UnfavoritesFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        public UnfavoritesFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_unfave, container, false);
+            return rootView;
+        }
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class OptionsFragment extends Fragment {
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        /**
+         * Returns a new instance of this fragment for the given section
+         * number.
+         */
+        public static OptionsFragment newInstance(int sectionNumber) {
+            OptionsFragment fragment = new OptionsFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        public OptionsFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_options, container, false);
             return rootView;
         }
     }
