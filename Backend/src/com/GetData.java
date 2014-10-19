@@ -1,5 +1,6 @@
 package com;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
@@ -41,13 +42,15 @@ public class GetData {
         d_securities = new ArrayList<String>();
         d_securities.add("MSFT US Equity");
         d_securities.add("IBM US Equity");
+        d_securities.add("XBTUSD Curncy");
         d_fields = new ArrayList<String>();
         d_fields.add("DS002"); //Description
-        d_fields.add("RQ005"); //Last price
+        d_fields.add("PX_OFFICIAL_CLOSE_RT"); //Prev to last price
         d_fields.add("PX_LAST"); //Last Stock Price
-        d_fields.add("RQ173"); //Previous closing value
-        d_fields.add("RQ539"); //Monthly Average Official Mean Price Real Time
-        d_fields.add("RQ580"); //Today's Last Yield
+       // d_fields.add("RQ173"); //Previous closing value
+        //d_fields.add("RQ539"); //Monthly Average Official Mean Price Real Time
+        //d_fields.add("RQ580"); //Today's Last Yield
+        //d_fields.add("CUR_EMPLOYEES"); //Current Employees
         
     }
         
@@ -113,6 +116,11 @@ public class GetData {
 	}
 	
 	private void processResponseEvent(Event event) throws Exception {
+		BufferedWriter writer;
+		File file = new File("field_output.txt"); //Create file for field information to populate
+		file.createNewFile();
+		writer = new BufferedWriter(new FileWriter(file));
+		writer.flush();
 		MessageIterator msgIter = event.messageIterator();
 		while(msgIter.hasNext()) {
 			Message msg = msgIter.next();
@@ -127,7 +135,8 @@ public class GetData {
 			for(int i = 0; i < numSecurities; ++i) {
 				Element security = securities.getValueAsElement(i);
 				String ticker = security.getElementAsString(SECURITY);
-				System.out.println("\nTicker: " + ticker);
+				System.out.println("\nTicker: " + ticker);//WRITE TO FILE HERE
+				writer.write("\n<SECURITY>"+ticker+"</SECURITY>\n"); //TODO: consider adding NEWLINE
 				if(security.hasElement(SECURITY_ERROR)) {
 					printErrorInfo("\tSECURITY FAILED: ", security.getElement(SECURITY_ERROR));
 					continue;
@@ -141,7 +150,10 @@ public class GetData {
 						int numElements = fields.numElements();
 						for(int j = 0; j < numElements; ++j) {
 							Element field = fields.getElement(j);
-							System.out.println(field.name() + "\t\t" + field.getValueAsString());
+							System.out.println(field.name() + "\t\t" + field.getValueAsString()); //WRITE TO FILE
+							writer.write("\t<FIELD_NAME>"+field.name()+"</FIELD_NAME>"+"\n\t\t\t<FIELD_VALUE>"
+							+field.getValueAsString()+"</FIELD_VALUE>");
+							writer.newLine();
 						}
 					}
 				}
@@ -156,7 +168,8 @@ public class GetData {
 					}
 				}
 			}
-		}
+		}//End of while loop
+		writer.close();
 	}
 	
 	private void sendRefDataRequest(Session session) throws Exception {
