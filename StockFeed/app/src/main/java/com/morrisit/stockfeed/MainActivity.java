@@ -50,9 +50,7 @@ public class MainActivity extends Activity {
         mViewPager.setCurrentItem(1);
 
         setContentView(R.layout.fragment_main);
-
         addImageButtonListener();
-
     }
 
     public void addImageButtonListener() {
@@ -106,9 +104,6 @@ public class MainActivity extends Activity {
 
                 case 1:
                     return FavoritesFragment.newInstance(position + 2);
-
-                case 2:
-                    return OptionsFragment.newInstance(position + 3);
             }
 
             return OptionsFragment.newInstance(position + 1);
@@ -116,8 +111,8 @@ public class MainActivity extends Activity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 2 total pages.
+            return 2;
         }
 
         @Override
@@ -128,8 +123,6 @@ public class MainActivity extends Activity {
                     return getString(R.string.title_section1).toUpperCase(l);
                 case 1:
                     return getString(R.string.title_section2).toUpperCase(l);
-                case 2:
-                    return getString(R.string.title_section3).toUpperCase(l);
             }
             return null;
         }
@@ -163,7 +156,7 @@ public class MainActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_options, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
         }
     }

@@ -3,10 +3,10 @@
 
     <string name="app_name">StockFeed</string>
     <string name="title_section1">Options</string>
-    <string name="title_section2">Favorites</string>
-    <string name="title_section3">All Stocks</string>
+    <string name="title_section2">All Stocks</string>
     <string name="action_refresh">Refresh</string>
-    <string name="stock_name">Stock Name</string>
-
+    <string name="up_icon">UP</string>
+    <string name="stock_name">MFST CORP</string>
+    <string name="stock_price">$ 43.63</string>
 
 </resources>
