@@ -29,7 +29,8 @@ public class GetData {
         d_securities = new ArrayList<String>();
         d_securities.add("MSFT US Equity");
         d_fields = new ArrayList<String>();
-        d_fields.add("DS002");
+        d_fields.add("DS002"); //Description
+        d_fields.add("PX_LAST"); //Last Stock Price
     }
         
 	public static void main(String args[]) throws Exception {
