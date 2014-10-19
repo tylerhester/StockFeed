@@ -1,31 +1,21 @@
 package com.morrisit.stockfeed;
 
 import java.util.Locale;
-
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Context;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 
 public class MainActivity extends Activity {
-
-    private ArrayList<String> strArray;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -43,6 +33,7 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        TextView textView = (TextView) findViewById(R.id.stock_name);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -55,9 +46,9 @@ public class MainActivity extends Activity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setCurrentItem(1);
 
-        /*TextView textView = (TextView) findViewById(R.id.stock_name);
-        textView.setText("Mmmmmmm");*/
-
+        //textView.setText("Mmmmmmm");
+        //ImageButton refresh = (ImageButton) findViewById(R.id.action_refresh);
+        //ImageButton favorite = (ImageButton) findViewById(R.id.favorite_button);
     }
 
 
@@ -74,13 +65,12 @@ public class MainActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-       if (id == R.id.action_refresh) {
+        if (id == R.id.action_refresh) {
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -96,7 +86,7 @@ public class MainActivity extends Activity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            switch(position) {
+            switch (position) {
                 case 0:
                     return OptionsFragment.newInstance(position + 1);
 
@@ -158,7 +148,7 @@ public class MainActivity extends Activity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
         }
@@ -229,5 +219,4 @@ public class MainActivity extends Activity {
             return rootView;
         }
     }
-
 }
