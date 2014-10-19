@@ -106,7 +106,7 @@ public class GetData {
 		//add securities to request
 		Element fields = request.getElement("fields");
 		for(String field : d_fields) {
-			securities.appendValue(field);
+			fields.appendValue(field);
 		}
 		
 		System.out.println("Sending Request: " + request);
