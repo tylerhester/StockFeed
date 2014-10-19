@@ -47,6 +47,7 @@ public class GetData {
         d_fields.add("DS002"); //Description
         d_fields.add("PX_OFFICIAL_CLOSE_RT"); //Prev to last price
         d_fields.add("PX_LAST"); //Last Stock Price
+        d_fields.add("PCT_WOMEN_EMPLOYEES");
        // d_fields.add("RQ173"); //Previous closing value
         //d_fields.add("RQ539"); //Monthly Average Official Mean Price Real Time
         //d_fields.add("RQ580"); //Today's Last Yield
@@ -175,6 +176,7 @@ public class GetData {
 	private void sendRefDataRequest(Session session) throws Exception {
 		Service refDataService = session.getService("//blp/refdata");
 		Request request = refDataService.createRequest("ReferenceDataRequest");
+		Request request_historical = refDataService.createRequest("HistoricalDataRequest");
 		
 		//add securities to request
 		Element securities = request.getElement("securities");
@@ -188,6 +190,12 @@ public class GetData {
 			fields.appendValue(field);
 		}
 		
+		//request.set("periodicityAdjustment", "ACTUAL");
+        //request.set("periodicitySelection", "MONTHLY");
+        request_historical.set("startDate", "20060101"); //year/month/day year/mm/dd
+        request_historical.set("endDate", "20061231");
+        request_historical.set("maxDataPoints", 100);
+        request_historical.set("returnEids", true);
 		System.out.println("Sending Request: " + request);
 		session.sendRequest(request, null);
 	}
