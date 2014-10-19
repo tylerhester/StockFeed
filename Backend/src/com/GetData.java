@@ -35,13 +35,20 @@ public class GetData {
 	private ArrayList<String> d_fields;
         
     public GetData() {
+    	//boolean isCrypto = false;
         IP_ADDRESS = "10.8.8.1";
         PORT = 8194;
         d_securities = new ArrayList<String>();
         d_securities.add("MSFT US Equity");
+        d_securities.add("IBM US Equity");
         d_fields = new ArrayList<String>();
         d_fields.add("DS002"); //Description
+        d_fields.add("RQ005"); //Last price
         d_fields.add("PX_LAST"); //Last Stock Price
+        d_fields.add("RQ173"); //Previous closing value
+        d_fields.add("RQ539"); //Monthly Average Official Mean Price Real Time
+        d_fields.add("RQ580"); //Today's Last Yield
+        
     }
         
 	public static void main(String args[]) throws Exception {
