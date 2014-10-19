@@ -42,7 +42,6 @@ public class GetData {
         d_securities = new ArrayList<String>();
         d_securities.add("AMD UN Equity"); //AMD
         d_securities.add("AAPL UW Equity"); //Apple
-        d_securities.add("XBTUSD Curncy"); //BitCoin
         d_securities.add("BLKB UW Equity"); //Blackbaud
         d_securities.add("INDU Index"); //DOW
         d_securities.add("FB UW Equity"); //Facebook
@@ -52,8 +51,8 @@ public class GetData {
         d_securities.add("QCOM UW Equity"); //Qualcomm
         d_fields = new ArrayList<String>();
         d_fields.add("DS002"); //Description
-        //d_fields.add("PX_OFFICIAL_CLOSE_RT"); //Prev to last price
-        d_fields.add("PX_LAST"); //Last Stock Price
+        d_fields.add("LOW"); //Prev to last price
+        d_fields.add("HIGH"); //Last Stock Price
         //	d_fields.add("RQ941"); //Upfront Price Percent Change on Day - Realtime
         //d_fields.add("RQ539"); //Monthly Average Official Mean Price Real Time
         //d_fields.add("RQ580"); //Today's Last Yield
@@ -161,11 +160,13 @@ public class GetData {
 							Element field = fields.getElement(j);
 							System.out.println(field.name() + "\t\t" + field.getValueAsString()); //WRITE TO FILE
 							if(field.name().equals("DS002"))
-								writer.write("<COMPANY>"+field.getValueAsString()+"</COMPANY>");
-							else if(field.name().equals("PX_LAST"))
-								writer.write("\t<PRICE>"+field.getValueAsString()+"</PRICE>");
-							writer.newLine();
-						}
+								writer.write(field.getValueAsString());
+							else if(field.name().equals("LOW"))
+								writer.write(":"+field.getValueAsString());
+							else
+								writer.write(":"+field.getValueAsString());
+							
+						}writer.newLine();
 					}
 				}
 				System.out.println("");
