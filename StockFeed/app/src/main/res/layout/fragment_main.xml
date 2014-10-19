@@ -10,10 +10,21 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:background="@android:color/darker_gray"
+        android:background="#81a8b8"
         tools:context=".MainActivity$FavoriteFragment"
-        android:orientation="vertical"
-        android:weightSum="1">
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/action_refresh"
+            android:src="@drawable/refresh"
+            android:title="@string/action_refresh"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="#00ffffff"
+            android:scaleType="fitXY"
+            android:paddingBottom="10dp"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"/>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -43,7 +54,8 @@
                 android:textStyle="bold"
                 android:layout_row="0"
                 android:layout_column="0"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/stock_low_1"
@@ -68,19 +80,6 @@
                 android:layout_gravity="center"
                 android:layout_row="1"
                 android:layout_column="0" />
-
-            <ImageButton
-                android:id="@+id/action_refresh1"
-                android:src="@drawable/refresh"
-                android:title="@string/action_refresh"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#00ffffff"
-                android:scaleType="fitXY"
-                android:layout_gravity="center_horizontal"
-                android:clickable="true"
-                android:layout_row="1"
-                android:layout_column="1" />
 
         </LinearLayout>
 
@@ -138,19 +137,6 @@
                 android:layout_row="1"
                 android:layout_column="0" />
 
-            <ImageButton
-                android:id="@+id/action_refresh2"
-                android:src="@drawable/refresh"
-                android:title="@string/action_refresh"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#00ffffff"
-                android:scaleType="fitXY"
-                android:layout_gravity="center_horizontal"
-                android:clickable="true"
-                android:layout_row="1"
-                android:layout_column="1" />
-
         </LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -207,19 +193,6 @@
                 android:layout_row="1"
                 android:layout_column="0" />
 
-            <ImageButton
-                android:id="@+id/action_refresh3"
-                android:src="@drawable/refresh"
-                android:title="@string/action_refresh"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#00ffffff"
-                android:scaleType="fitXY"
-                android:layout_gravity="center_horizontal"
-                android:clickable="true"
-                android:layout_row="1"
-                android:layout_column="1" />
-
         </LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -250,7 +223,8 @@
                 android:textStyle="bold"
                 android:layout_row="0"
                 android:layout_column="0"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/stock_low_4"
@@ -275,19 +249,6 @@
                 android:layout_gravity="center"
                 android:layout_row="1"
                 android:layout_column="0" />
-
-            <ImageButton
-                android:id="@+id/action_refresh4"
-                android:src="@drawable/refresh"
-                android:title="@string/action_refresh"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#00ffffff"
-                android:scaleType="fitXY"
-                android:layout_gravity="center_horizontal"
-                android:clickable="true"
-                android:layout_row="1"
-                android:layout_column="1" />
 
         </LinearLayout>
 
@@ -345,19 +306,6 @@
                 android:layout_row="1"
                 android:layout_column="0" />
 
-            <ImageButton
-                android:id="@+id/action_refresh5"
-                android:src="@drawable/refresh"
-                android:title="@string/action_refresh"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#00ffffff"
-                android:scaleType="fitXY"
-                android:layout_gravity="center_horizontal"
-                android:clickable="true"
-                android:layout_row="1"
-                android:layout_column="1" />
-
         </LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -414,19 +362,6 @@
                 android:layout_row="1"
                 android:layout_column="0" />
 
-            <ImageButton
-                android:id="@+id/action_refresh6"
-                android:src="@drawable/refresh"
-                android:title="@string/action_refresh"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#00ffffff"
-                android:scaleType="fitXY"
-                android:layout_gravity="center_horizontal"
-                android:clickable="true"
-                android:layout_row="1"
-                android:layout_column="1" />
-
         </LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -457,7 +392,8 @@
                 android:textStyle="bold"
                 android:layout_row="0"
                 android:layout_column="0"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/stock_low_7"
@@ -482,19 +418,6 @@
                 android:layout_gravity="center"
                 android:layout_row="1"
                 android:layout_column="0" />
-
-            <ImageButton
-                android:id="@+id/action_refresh7"
-                android:src="@drawable/refresh"
-                android:title="@string/action_refresh"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#00ffffff"
-                android:scaleType="fitXY"
-                android:layout_gravity="center_horizontal"
-                android:clickable="true"
-                android:layout_row="1"
-                android:layout_column="1" />
 
         </LinearLayout>
 
@@ -552,19 +475,6 @@
                 android:layout_row="1"
                 android:layout_column="0" />
 
-            <ImageButton
-                android:id="@+id/action_refresh8"
-                android:src="@drawable/refresh"
-                android:title="@string/action_refresh"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#00ffffff"
-                android:scaleType="fitXY"
-                android:layout_gravity="center_horizontal"
-                android:clickable="true"
-                android:layout_row="1"
-                android:layout_column="1" />
-
         </LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -621,23 +531,6 @@
                 android:layout_row="1"
                 android:layout_column="0" />
 
-            <ImageButton
-                android:id="@+id/action_refresh9"
-                android:src="@drawable/refresh"
-                android:title="@string/action_refresh"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#00ffffff"
-                android:scaleType="fitXY"
-                android:layout_gravity="center_horizontal"
-                android:clickable="true"
-                android:layout_row="1"
-                android:layout_column="1" />
-
-        </LinearLayout>
-
-
-
+            </LinearLayout>
     </LinearLayout>
-
 </ScrollView>

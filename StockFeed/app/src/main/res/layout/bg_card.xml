@@ -14,7 +14,7 @@
                 android:topLeftRadius="15dp"
                 />
 
-            <solid android:color="#ccc" />
+            <solid android:color="#c5e0dc" />
 
         </shape>
     </item>
@@ -30,7 +30,7 @@
                 android:topLeftRadius="15dp"
                 />
 
-            <solid android:color="@android:color/white" />
+            <solid android:color="#e8f3f8" />
 
             <padding android:bottom="20dp"
                 android:left="20dp"

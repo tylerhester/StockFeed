@@ -1,5 +1,6 @@
 package com.morrisit.stockfeed;
 
+import java.util.ArrayList;
 import java.util.Locale;
 import android.app.Activity;
 import android.app.Fragment;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -31,7 +33,6 @@ public class MainActivity extends Activity {
      * The {@link ViewPager} that will host the section contents.
      */
     ViewPager mViewPager;
-    ImageButton imageButton;
 
 
     @Override
@@ -50,19 +51,105 @@ public class MainActivity extends Activity {
         mViewPager.setCurrentItem(1);
 
         setContentView(R.layout.fragment_main);
-        addImageButtonListener();
-    }
 
-    public void addImageButtonListener() {
-        imageButton = (ImageButton) findViewById(R.id.action_refresh);
+
+        ImageButton imageButton = (ImageButton) findViewById(R.id.action_refresh);
+
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Refreshing Stocks!", Toast.LENGTH_SHORT).show();
+            public void onClick(View v)  {
+
+                try {
+
+                    String stock1 = getString(R.string.stock_name_1);
+                    String stock2 = getString(R.string.stock_name_1);
+                    String stock3 = getString(R.string.stock_name_1);
+                    String stock4 = getString(R.string.stock_name_1);
+                    String stock5 = getString(R.string.stock_name_1);
+                    String stock6 = getString(R.string.stock_name_1);
+                    String stock7 = getString(R.string.stock_name_1);
+                    String stock8 = getString(R.string.stock_name_1);
+                    String stock9 = getString(R.string.stock_name_1);
+
+                    DataParser parser = new DataParser();
+
+                    TextView low1 = (TextView) findViewById(R.id.stock_low_1)  ;
+                    TextView high1 = (TextView) findViewById(R.id.stock_high_1);
+                    TextView low2 = (TextView) findViewById(R.id.stock_low_2)  ;
+                    TextView high2 = (TextView) findViewById(R.id.stock_high_2);
+                    TextView low3 = (TextView) findViewById(R.id.stock_low_3)  ;
+                    TextView high3 = (TextView) findViewById(R.id.stock_high_3);
+                    TextView low4 = (TextView) findViewById(R.id.stock_low_4)  ;
+                    TextView high4 = (TextView) findViewById(R.id.stock_high_4);
+                    TextView low5 = (TextView) findViewById(R.id.stock_low_5)  ;
+                    TextView high5 = (TextView) findViewById(R.id.stock_high_5);
+                    TextView low6 = (TextView) findViewById(R.id.stock_low_6)  ;
+                    TextView high6 = (TextView) findViewById(R.id.stock_high_6);
+                    TextView low7 = (TextView) findViewById(R.id.stock_low_7)  ;
+                    TextView high7 = (TextView) findViewById(R.id.stock_high_7);
+                    TextView low8 = (TextView) findViewById(R.id.stock_low_8)  ;
+                    TextView high8 = (TextView) findViewById(R.id.stock_high_8);
+                    TextView low9 = (TextView) findViewById(R.id.stock_low_9)  ;
+                    TextView high9 = (TextView) findViewById(R.id.stock_high_9);
+
+                    String sl1 = parser.retrieveLow(stock1);
+                    String sl2 = parser.retrieveLow(stock2);
+                    String sl3 = parser.retrieveLow(stock3);
+                    String sl4 = parser.retrieveLow(stock4);
+                    String sl5 = parser.retrieveLow(stock5);
+                    String sl6 = parser.retrieveLow(stock6);
+                    String sl7 = parser.retrieveLow(stock7);
+                    String sl8 = parser.retrieveLow(stock8);
+                    String sl9 = parser.retrieveLow(stock9);
+
+                    String sh1 = parser.retrieveHigh(stock1);
+                    String sh2 = parser.retrieveHigh(stock2);
+                    String sh3 = parser.retrieveHigh(stock3);
+                    String sh4 = parser.retrieveHigh(stock4);
+                    String sh5 = parser.retrieveHigh(stock5);
+                    String sh6 = parser.retrieveHigh(stock6);
+                    String sh7 = parser.retrieveHigh(stock7);
+                    String sh8 = parser.retrieveHigh(stock8);
+                    String sh9 = parser.retrieveHigh(stock9);
+
+                    low1.setText(sl1);
+                    high1.setText(sh1);
+
+                    low2.setText(sl2);
+                    high2.setText(sh2);
+
+                    low3.setText(sl3);
+                    high3.setText(sh3);
+
+                    low4.setText(sl4);
+                    high4.setText(sh4);
+
+                    low5.setText(sl5);
+                    high5.setText(sh5);
+
+                    low6.setText(sl6);
+                    high6.setText(sh6);
+
+                    low7.setText(sl7);
+                    high7.setText(sh7);
+
+                    low8.setText(sl8);
+                    high8.setText(sh8);
+
+                    low9.setText(sl9);
+                    high9.setText(sh9);
+
+
+                }
+
+                catch (Exception e) {
+                    Toast toast = Toast.makeText(MainActivity.this, "" + e.toString(), Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+
             }
         });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
