@@ -18,6 +18,17 @@ import com.bloomberglp.blpapi.SessionOptions;
 
 @SuppressWarnings("unused")
 public class GetData {
+	private static final Name SECURITY_DATA = new Name("securityData");
+    private static final Name SECURITY = new Name("security");
+    private static final Name FIELD_DATA = new Name("fieldData");
+    private static final Name RESPONSE_ERROR = new Name("responseError");
+    private static final Name SECURITY_ERROR = new Name("securityError");
+    private static final Name FIELD_EXCEPTIONS = new Name("fieldExceptions");
+    private static final Name FIELD_ID = new Name("fieldId");
+    private static final Name ERROR_INFO = new Name("errorInfo");
+    private static final Name CATEGORY = new Name("category");
+    private static final Name MESSAGE = new Name("message");
+	
 	private String IP_ADDRESS;
 	private int PORT;
 	private ArrayList<String> d_securities;
@@ -124,5 +135,11 @@ public class GetData {
 		System.out.println("Sending Request: " + request);
 		session.sendRequest(request, null);
 	}
+	private void printErrorInfo(String leadingStr, Element errorInfo)
+		    throws Exception
+		    {
+		        System.out.println(leadingStr + errorInfo.getElementAsString(CATEGORY) +
+		                           " (" + errorInfo.getElementAsString(MESSAGE) + ")");
+		    }
 
 }
