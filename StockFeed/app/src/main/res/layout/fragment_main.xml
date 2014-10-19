@@ -29,11 +29,12 @@
 
             <ImageButton
                 android:id="@+id/favorite_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/btn_star"
+                android:layout_width="7dp"
+                android:layout_height="40dp"
+                android:src="@drawable/fave_icon"
                 android:layout_weight=".15"
-                android:background="#00ffffff" />
+                android:background="#00ffffff"
+                android:scaleType="fitXY"/>
 
             <TextView
                 android:id="@+id/stock_name"
@@ -43,21 +44,18 @@
                 android:textAllCaps="true"
                 android:textSize="25px"
                 android:paddingTop="0dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
-                />
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp" />
 
             <ImageButton
                 android:id="@+id/action_refresh"
-                android:src="@android:drawable/btn_star_big_off"
+                android:src="@drawable/refresh"
                 android:title="@string/action_refresh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="7dp"
+                android:layout_height="40dp"
                 android:layout_weight=".15"
-                android:background="#00ffffff" />
+                android:background="#00ffffff"
+                android:scaleType="fitXY" />
         </LinearLayout>
-
-
-
     </LinearLayout>
 </ScrollView>
