@@ -1,4 +1,4 @@
-package com.bloomberglp.blpapi.examples;
+package com.bloomberglp.blpapi;
 
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -22,22 +22,22 @@ public class GetData {
 	private ArrayList<String> d_securities;
 	private ArrayList<String> field;
         
-        public GetData() {
-            IP_ADDRESS = "10.8.8.1";
-            PORT = 8194;
-            d_securities.add("MSFT US Equity");
-            field.add("DS002");
-        }
+    public GetData() {
+        IP_ADDRESS = "10.8.8.1";
+        PORT = 8194;
+        d_securities.add("MSFT US Equity");
+        field.add("DS002");
+    }
         
-	public static void main(String args[]) {
+	public static void main(String args[]) throws Exception {
 		GetData app = new GetData();
 		app.run();
 	}
 
-	private void run() {
+	private void run() throws Exception {
 		SessionOptions sessionOptions = new SessionOptions();
-		session.setServerHost(IP_ADDRESS);
-		session.setServerPort(PORT);
+		sessionOptions.setServerHost(IP_ADDRESS);
+		sessionOptions.setServerPort(PORT);
 
 		System.out.println("Connecting to " + IP_ADDRESS + ":" + PORT);
 		Session session = new Session(sessionOptions);
