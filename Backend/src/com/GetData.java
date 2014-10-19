@@ -14,7 +14,7 @@ import com.bloomberglp.blpapi.Name;
 import com.bloomberglp.blpapi.Request;
 import com.bloomberglp.blpapi.Service;
 import com.bloomberglp.blpapi.Session;
-import com.bloomberglp.blpapi.SessionOptions;
+import com.bloomberglp.blpapi.SessionOptions;	
 
 @SuppressWarnings("unused")
 public class GetData {
@@ -150,7 +150,6 @@ public class GetData {
 				}
 			}
 		}
-		System.out.println("FUCK");
 	}
 	
 	private void sendRefDataRequest(Session session) throws Exception {
