@@ -6,7 +6,43 @@
     <string name="title_section2">All Stocks</string>
     <string name="action_refresh">Refresh</string>
     <string name="up_icon">UP</string>
-    <string name="stock_name">MFST CORP</string>
-    <string name="stock_price">$ 43.63</string>
+
+    <string name="stock_name_1">ADVANCED MICRO DEVICES</string>
+    <string name="stock_low_1">0.00</string>
+    <string name="stock_high_1">0.00</string>
+
+    <string name="stock_name_2">APPLE INC</string>
+    <string name="stock_low_2">0.00</string>
+    <string name="stock_high_2">0.00</string>
+
+    <string name="stock_name_3">BLACKBAUD INC</string>
+    <string name="stock_low_3">0.00</string>
+    <string name="stock_high_3">0.00</string>
+
+    <string name="stock_name_4">DOW JONES INDUS. AVG</string>
+    <string name="stock_low_4">0.00</string>
+    <string name="stock_high_4">0.00</string>
+
+    <string name="stock_name_5">FACEBOOK INC-A</string>
+    <string name="stock_low_5">0.00</string>
+    <string name="stock_high_5">0.00</string>
+
+    <string name="stock_name_6">GOOGLE INC-CL A</string>
+    <string name="stock_low_6">0.00</string>
+    <string name="stock_high_6">0.00</string>
+
+    <string name="stock_name_7">INTL BUSINESS MACHINES CORP</string>
+    <string name="stock_low_7">0.00</string>
+    <string name="stock_high_7">0.00</string>
+
+    <string name="stock_name_8">MICROSOFT CORP</string>
+    <string name="stock_low_8">0.00</string>
+    <string name="stock_high_8">0.00</string>
+
+    <string name="stock_name_9">QUALCOMM INC</string>
+    <string name="stock_low_9">0.00</string>
+    <string name="stock_high_9">0.00</string>
+
+
 
 </resources>
