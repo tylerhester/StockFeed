@@ -12,7 +12,7 @@ public class DataParser {
     public void populateCompanies() throws Exception {
         URL xml = new URL("http://stock-feed.cloudapp.net/examples/field_output.txt");
         BufferedReader stream = new BufferedReader(new InputStreamReader(xml.openStream()));
-        String line;
+        String line = stream.readLine(); // change this declaration later
         do {
             line = stream.readLine();
             if(line == null) break;
