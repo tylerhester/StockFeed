@@ -21,15 +21,15 @@ public class GetData {
 	private String IP_ADDRESS;
 	private int PORT;
 	private ArrayList<String> d_securities;
-	private ArrayList<String> fields;
+	private ArrayList<String> d_fields;
         
     public GetData() {
         IP_ADDRESS = "10.8.8.1";
         PORT = 8194;
         d_securities = new ArrayList<String>();
         d_securities.add("MSFT US Equity");
-        fields = new ArrayList<String>();
-        fields.add("DS002");
+        d_fields = new ArrayList<String>();
+        d_fields.add("DS002");
     }
         
 	public static void main(String args[]) throws Exception {
@@ -38,7 +38,7 @@ public class GetData {
 	}
 
 	private void run() throws Exception {
-		SessionOptions sessionOptions = new SessionOptions();
+		 SessionOptions sessionOptions = new SessionOptions();
 		 sessionOptions.setServerHost(IP_ADDRESS);
 		 sessionOptions.setServerPort(PORT);
 
@@ -52,10 +52,39 @@ public class GetData {
 		 	System.err.println("Failed to open //blp/refdata");
 		 	return;
 		 }
-//
-		System.out.println("SUCCESS MOTHERFUCKER!");
+		 
+		 try {
+			 sendRefDataRequest(session);
+		 } catch (InvalidRequestException e) {
+			 e.printStackTrace();
+		 }
+		 
+		 // wait for events from session
+//		 eventLoop(session);
+		 
+		 session.stop();
+		 System.out.println("SUCCESS MOTHERFUCKER!");
 
-		// Session session = new Session ?
+	}
+	
+	private void sendRefDataRequest(Session session) throws Exception {
+		Service refDataService = session.getService("//blp/refdata");
+		Request request = refDataService.createRequest("ReferenceDataRequest");
+		
+		//add securities to request
+		Element securities = request.getElement("securities");
+		for(String security : d_securities) {
+			securities.appendValue(security);
+		}
+		
+		//add securities to request
+		Element fields = request.getElement("fields");
+		for(String field : d_fields) {
+			securities.appendValue(field);
+		}
+		
+		System.out.println("Sending Request: " + request);
+		session.sendRequest(request, null);
 	}
 
 }
